@@ -26,6 +26,8 @@ gen-*
 /aclocal.m4
 /autom4te.cache
 /autoscan.log
+/build-arch-stamp
+/build-indep-stamp
 /compiler/cpp/Debug
 /compiler/cpp/libparse.a
 /compiler/cpp/Makefile
@@ -35,8 +37,10 @@ gen-*
 /compiler/cpp/thrifty.cc
 /compiler/cpp/thrifty.h
 /compiler/cpp/version.h
+/compiler/cpp/src/windows/version.h
 /config.*
 /configure
+/configure-stamp
 /configure.lineno
 /configure.scan
 /contrib/fb303/Makefile
@@ -60,6 +64,20 @@ gen-*
 /contrib/fb303/py/fb303/constants.py
 /contrib/fb303/py/fb303/ttypes.py
 /depcomp
+/debian/*.debhelper
+/debian/*.log
+/debian/*.substvars
+/debian/files
+/debian/libthrift-cil/
+/debian/libthrift-dev/
+/debian/libthrift-java/
+/debian/libthrift-perl/
+/debian/libthrift0/
+/debian/php5-thrift/
+/debian/python-thrift-dbg/
+/debian/python-thrift/
+/debian/ruby-thrift/
+/debian/thrift-compiler/
 /if/Makefile
 /if/Makefile.in
 /install-sh
@@ -145,6 +163,7 @@ gen-*
 /lib/js/test/Makefile
 /lib/js/test/Makefile.in
 /lib/perl/MANIFEST
+/lib/perl/MYMETA.yml
 /lib/perl/Makefile
 /lib/perl/Makefile.in
 /lib/perl/Makefile-perl.mk
@@ -155,6 +174,7 @@ gen-*
 /lib/py/Makefile
 /lib/py/Makefile.in
 /lib/py/build
+/lib/py/thrift.egg-info/
 /lib/rb/Makefile
 /lib/rb/Makefile.in
 /lib/rb/debug_proto_test
