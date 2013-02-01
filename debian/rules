@@ -25,6 +25,9 @@ configure-stamp:
 	if [ -f bootstrap.sh ]; then $(CURDIR)/bootstrap.sh; fi
 	$(CURDIR)/configure --prefix=/usr --with-c_glib --without-erlang
 
+	(cd $(CURDIR)/contrib/fb303; \
+		./bootstrap.sh --prefix=/usr/ --with-thriftpath=$(CURDIR))
+
 	touch configure-stamp
 
 
@@ -59,6 +62,14 @@ build-arch-stamp: configure-stamp
 
 	touch $@
 
+	# fb303
+	mkdir -p $(CURDIR)/bin
+	# Not doing a symlink because VirtualBox is terrible.
+	#ln -snf $(CURDIR)/compiler/cpp/thrift $(CURDIR)/bin/thrift
+	cp -v $(CURDIR)/compiler/cpp/thrift $(CURDIR)/bin/thrift
+	$(MAKE) -C $(CURDIR)/contrib/fb303
+
+
 build-indep: build-indep-stamp
 build-indep-stamp: configure-stamp
 
@@ -87,6 +98,8 @@ clean:
 
 	# Add here commands to clean up after the build process.
 	-$(MAKE) clean
+	-$(MAKE) -C $(CURDIR)/contrib/fb303 distclean
+	rm -rf $(CURDIR)/bin
 
 	dh_clean
 
@@ -162,11 +175,14 @@ install-arch:
 		$(MAKE) DESTDIR=$(CURDIR)/debian/php5-thrift install
 
 	# C++ and C (glib)
-	mkdir -p $(CURDIR)/debian/tmp; \
+	$(MAKE) -p $(CURDIR)/debian/tmp; \
 	cd $(CURDIR)/lib/cpp && \
-		make DESTDIR=$(CURDIR)/debian/tmp install
+		$(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
 	cd $(CURDIR)/lib/c_glib && \
-		make DESTDIR=$(CURDIR)/debian/tmp install
+		$(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
+
+	# fb303
+	(cd $(CURDIR)/contrib/fb303 && $(MAKE) DESTDIR=$(CURDIR)/debian/tmp install)
 
 	dh_install --sourcedir=debian/tmp -s
 

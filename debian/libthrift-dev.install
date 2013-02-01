@@ -1,4 +1,4 @@
-usr/lib/*.a
-usr/lib/*.la
+usr/lib/libthrift*.a
+usr/lib/libthrift*.la
 usr/lib/pkgconfig
-usr/include
+usr/include/thrift
