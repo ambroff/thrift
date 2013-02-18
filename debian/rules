@@ -26,7 +26,8 @@ configure-stamp:
 	$(CURDIR)/configure --prefix=/usr --with-c_glib --without-erlang
 
 	(cd $(CURDIR)/contrib/fb303; \
-		./bootstrap.sh --prefix=/usr/ --with-thriftpath=$(CURDIR))
+		CPPFLAGS=-I$(CURDIR)/lib/cpp/src ./bootstrap.sh \
+		--prefix=/usr/ --with-thriftpath=$(CURDIR))
 
 	touch configure-stamp
 
