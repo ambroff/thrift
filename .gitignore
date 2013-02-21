@@ -82,6 +82,7 @@ gen-*
 /debian/python-thrift-dbg/
 /debian/python-thrift/
 /debian/ruby-thrift/
+/debian/tmp/
 /debian/thrift-compiler/
 /if/Makefile
 /if/Makefile.in
