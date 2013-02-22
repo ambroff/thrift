@@ -156,7 +156,7 @@ Description: PHP bindings for Thrift
 Package: libfb303-dev
 Architecture: any
 Section: libdevel
-Depends: ${shlibs:Depends}, ${misc:Depends}, libthrift0, libglib2.0-dev
+Depends: ${shlibs:Depends}, ${misc:Depends}, libthrift0, libglib2.0-dev, libfb303
 Description: FB303 C++ library (development headers)
  A standard interface for monitoring, dynamic options and configuration, uptime
  reports and activity.
