@@ -1,4 +1,10 @@
-thrift (0.9.0~jb1ubuntu2) lucid; urgency=low
+thrift (0.9.0~jb1ubuntu3) precise; urgency=low
+
+  * "Fixed" bug in python-(thrift|fb303), although they really should use dhpython2 or whatever.
+
+ -- Kyle Ambroff <ambroff@jawbone.com>  Wed, 20 Mar 2013 22:59:57 +0000
+
+thrift (0.9.0~jb1ubuntu2) precise; urgency=low
 
   * Rebuilt to fix libevent linking issue.
   * libfb303-dev should depend on libfb303.
